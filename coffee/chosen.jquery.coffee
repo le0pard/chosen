@@ -102,6 +102,10 @@ class Chosen extends AbstractChosen
 
     if @is_multiple
       @search_choices.bind 'click.chosen', (evt) => this.choices_click(evt); return
+      @search_choices.bind 'touchstart.chosen', (evt) =>
+        this.container_mousedown(evt)
+        this.choices_click(evt)
+        return
     else
       @container.bind 'click.chosen', (evt) -> evt.preventDefault(); return # gobble click of anchor
 

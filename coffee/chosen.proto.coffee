@@ -87,6 +87,9 @@ class @Chosen extends AbstractChosen
 
     if @is_multiple
       @search_choices.observe "click", (evt) => this.choices_click(evt)
+      @search_choices.observe "touchstart", (evt) => 
+        this.container_mousedown(evt)
+        this.choices_click(evt)
     else
       @container.observe "click", (evt) => evt.preventDefault() # gobble click of anchor
 
